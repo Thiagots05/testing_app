@@ -11,7 +11,10 @@ class Favorites extends ChangeNotifier {
     notifyListeners();
   }
 
-  void remove(int itemNo) {
+ void remove(int itemNo) {
+    if(!_favoriteItems.contains(itemNo)){
+      throw Exception('Item not found');
+    }
     _favoriteItems.remove(itemNo);
     notifyListeners();
   }
